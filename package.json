@@ -1,0 +1,9 @@
+{
+  "name": "le-bandit-static",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "gen": "node scripts/populate-content.mjs",
+    "build": "node scripts/populate-content.mjs && node scripts/build.mjs"
+  }
+}
