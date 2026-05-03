@@ -998,10 +998,22 @@ function writeRobots() {
   fs.writeFileSync(path.join(DIST, "robots.txt"), txt, "utf8");
 }
 
+function copyPublicToDist() {
+  const pub = path.join(ROOT, "public");
+  if (!fs.existsSync(pub)) return;
+  for (const name of fs.readdirSync(pub)) {
+    const src = path.join(pub, name);
+    const dest = path.join(DIST, name);
+    if (fs.statSync(src).isDirectory()) copyDir(src, dest);
+    else fs.copyFileSync(src, dest);
+  }
+}
+
 function main() {
   rmrf(DIST);
   fs.mkdirSync(DIST, { recursive: true });
   copyDir(path.join(ROOT, "assets"), path.join(DIST, "assets"));
+  copyPublicToDist();
 
   for (const def of PAGE_DEFS) {
     for (const lang of ["ru", "en", "es"]) {
