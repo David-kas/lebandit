@@ -1,4 +1,6 @@
 const SITE = "https://le-bandit-game.vercel.app";
+/** Same token as public/yandex_*.html — meta works when the static file is missing on CDN. */
+const YANDEX_VERIFICATION = "a5c3709972c5a32c";
 const PLAY_URL =
   "https://h0xhaw0za1kg7e.xyz/click/6979c7c96bcc6364c87500ce/7/16899/subaccount";
 
@@ -296,6 +298,7 @@ function renderPage(opts) {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="yandex-verification" content="${escapeHtml(YANDEX_VERIFICATION)}" />
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}" />
   <link rel="canonical" href="${canonical}" />
