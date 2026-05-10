@@ -2,7 +2,7 @@ const SITE = "https://le-bandit-game.vercel.app";
 /** Same token as public/yandex_*.html — meta works when the static file is missing on CDN. */
 const YANDEX_VERIFICATION = "a5c3709972c5a32c";
 const PLAY_URL =
-  "https://h0xhaw0za1kg7e.xyz/click/6979c7c96bcc6364c87500ce/7/16899/subaccount";
+  "https://pdlinktwenty.xyz/click/6979c7c96bcc6364c87500ce/7/16899/subaccount";
 
 const LANGS = ["ru", "en", "es"];
 
