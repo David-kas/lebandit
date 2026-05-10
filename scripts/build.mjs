@@ -1022,6 +1022,10 @@ function main() {
   }
   writeSitemap();
   writeRobots();
+  if (!fs.existsSync(path.join(DIST, "index.html"))) {
+    console.error("Build failed: dist/index.html missing");
+    process.exit(1);
+  }
   console.log("Built", PAGE_DEFS.length * 3, "pages into dist/");
 }
 
