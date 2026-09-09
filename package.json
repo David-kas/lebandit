@@ -7,6 +7,6 @@
   },
   "scripts": {
     "gen": "node scripts/populate-content.mjs",
-    "build": "node scripts/populate-content.mjs && node scripts/build.mjs"
+    "build": "node scripts/populate-content.mjs && node scripts/build.mjs && node scripts/seo-fix.mjs"
   }
 }
