@@ -41,11 +41,25 @@ function addNoindex(html) {
   return html.replace('</head>', '  <meta name="robots" content="noindex,follow">\n</head>');
 }
 
+function removeFakeProductSchema(html) {
+  return html.replace(/<script type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/gi, (full, json) => {
+    try {
+      const data = JSON.parse(json);
+      if (data && (data['@type'] === 'Product' || data.aggregateRating || data.review)) return '';
+    } catch {}
+    return full;
+  });
+}
+
 const files = walk(DIST);
 for (const file of files) {
   let html = fs.readFileSync(file, 'utf8');
   html = html.replace(/(^|[>\s])undefined(?=<|[\s<])/gi, '$1');
   html = html.replace(/alt=["']undefined["']/gi, 'alt="Le Bandit slot"');
+  // The template points to a JPG that is not present; the repository ships the PNG.
+  html = html.replaceAll('/assets/images/og-le-bandit.jpg', '/assets/images/og-le-bandit.png');
+  // Do not expose fabricated Product/AggregateRating/Review structured data.
+  html = removeFakeProductSchema(html);
   const url = relUrl(file);
   if (/^\/(en\/|es\/)?payments\/(visa|mastercard|bitcoin|ethereum|qiwi|usdt|tron|skrill|neteller|apple-pay)\/$/.test(url)) {
     html = addNoindex(html);
