@@ -246,7 +246,7 @@ for (const [route, meta] of Object.entries(pages)) {
   if (route === "/" && !html.includes('id="le-bandit-russian-guide"')) {
     html = html.replace("</main>", homeExtra + "\n</main>");
     html = html.replace(
-      /<img class="lazy"\s+src="data:image[^"]*"\s+data-src="\/assets\/images\/hero-le-bandit\.png"([^>]*?)loading="lazy"([^>]*?)\/>/i,
+      /<img class="lazy"\s+src="data:image[^"]*"\s+data-src="\/?assets\/images\/hero-le-bandit\.png"([^>]*?)loading="lazy"([^>]*?)\/>/i,
       '<img class="hero-seo-img" src="/assets/images/hero-le-bandit.png"$1loading="eager" fetchpriority="high"$2/>'
     );
   }
