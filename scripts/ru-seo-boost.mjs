@@ -51,6 +51,56 @@ const pages = {
     title: "Le Bandit на ПК — слот Ле Бандит онлайн на компьютере",
     description: "Le Bandit на ПК: играть в слот Ле Бандит через браузер, демо режим, требования к компьютеру, безопасность и удобство версии Hacksaw Gaming.",
     h1: "Le Bandit на ПК — слот Ле Бандит на компьютере"
+  },
+  "/download/": {
+    title: "Скачать Le Bandit — слот Ле Бандит на Android, iPhone и ПК",
+    description: "Как скачать и запустить Le Bandit: слот Ле Бандит на Android, iPhone и ПК, браузерная версия, безопасность установки и мобильная игра Hacksaw Gaming.",
+    h1: "Скачать Le Bandit — слот Ле Бандит на телефон и ПК"
+  },
+  "/strategy/": {
+    title: "Стратегия Le Bandit — как играть в Ле Бандит и управлять ставками",
+    description: "Стратегия Le Bandit без мифов: RTP, волатильность, размер ставки, длительность сессии, демо и Bonus Buy. Слот Ле Бандит от Hacksaw Gaming.",
+    h1: "Стратегия Le Bandit — как играть в слот Ле Бандит"
+  },
+  "/apk/": {
+    title: "Le Bandit APK — скачать слот Ле Бандит на Android безопасно",
+    description: "Le Bandit APK и Android: где безопасно запускать слот Ле Бандит, почему опасны сторонние APK и чем браузерная версия отличается от установки.",
+    h1: "Le Bandit APK — слот Ле Бандит на Android"
+  },
+  "/faq/": {
+    title: "Le Bandit FAQ — RTP, демо, бонусы и вопросы про слот Ле Бандит",
+    description: "Ответы на вопросы про Le Bandit: RTP 96,34%, волатильность 3/5, max win 10 000x, демо, Golden Squares, Bonus Buy и мобильная версия.",
+    h1: "Le Bandit FAQ — вопросы и ответы про слот Ле Бандит"
+  },
+  "/payments/": {
+    title: "Le Bandit казино — платежи и способы пополнения для слота",
+    description: "Платежи для Le Bandit в онлайн-казино: карты, электронные кошельки и криптовалюта, комиссии, лимиты и безопасность перед игрой в слот Ле Бандит.",
+    h1: "Le Bandit казино — платежи и пополнение для слота"
+  },
+  "/blog/": {
+    title: "Le Bandit блог — гайды про слот Ле Бандит, демо и Hacksaw Gaming",
+    description: "Блог про Le Bandit: демо, механики, символы, RTP, бонусы и другие слоты Hacksaw Gaming. Русские гайды по игровому автомату Ле Бандит.",
+    h1: "Le Bandit блог — гайды про слот Ле Бандит"
+  },
+  "/blog/le-bandit-demo-v-rublyah/": {
+    title: "Le Bandit демо в рублях — играть бесплатно в Ле Бандит",
+    description: "Le Bandit демо в рублях: как работает отображение валюты, бесплатный режим и что можно проверить перед реальными ставками в слоте Ле Бандит.",
+    h1: "Le Bandit демо в рублях — бесплатный режим Ле Бандит"
+  },
+  "/blog/kak-vyigrat-v-le-bandit/": {
+    title: "Как выиграть в Le Bandit — RTP, риск и механики слота Ле Бандит",
+    description: "Разбор запроса «как выиграть в Le Bandit»: что реально означают RTP и волатильность, как работают бонусы и почему гарантированной схемы выигрыша нет.",
+    h1: "Как выиграть в Le Bandit: что реально влияет на игру"
+  },
+  "/blog/luchshie-simvoly-le-bandit/": {
+    title: "Символы Le Bandit — Golden Squares, Rainbow, Coins и Pot of Gold",
+    description: "Символы Le Bandit: Golden Squares, Rainbow, Bronze/Silver/Gold Coins, Four-Leaf Clover, Pot of Gold и их роль в механике слота Ле Бандит.",
+    h1: "Символы Le Bandit — Golden Squares, Rainbow и монеты"
+  },
+  "/blog/hacksaw-gaming-sloty/": {
+    title: "Hacksaw Gaming слоты — Le Bandit и механики провайдера",
+    description: "Hacksaw Gaming и Le Bandit: особенности слотов провайдера, мобильный формат, бонусные механики и что сравнивать перед выбором игры.",
+    h1: "Hacksaw Gaming слоты — Le Bandit и другие игры провайдера"
   }
 };
 
@@ -196,8 +246,8 @@ for (const [route, meta] of Object.entries(pages)) {
   if (route === "/" && !html.includes('id="le-bandit-russian-guide"')) {
     html = html.replace("</main>", homeExtra + "\n</main>");
     html = html.replace(
-      /<img class="lazy"([^>]*?)data-src="\/assets\/images\/hero-le-bandit\.png"([^>]*?)loading="lazy"([^>]*?)\/>/i,
-      '<img$1src="/assets/images/hero-le-bandit.png"$2loading="eager" fetchpriority="high"$3/>'
+      /<img class="lazy"\s+src="data:image[^"]*"\s+data-src="\/assets\/images\/hero-le-bandit\.png"([^>]*?)loading="lazy"([^>]*?)\/>/i,
+      '<img class="hero-seo-img" src="/assets/images/hero-le-bandit.png"$1loading="eager" fetchpriority="high"$2/>'
     );
   }
 
